@@ -4,7 +4,6 @@ import serial
 PORT = "/dev/ttyACM1"  # Replace with your port (e.g., COM3 on Windows, /dev/ttyUSB0 on Linux/Mac)
 BAUDRATE = 9600      # Match the baud rate in your Arduino sketch
 OUTPUT_FILE = "captured_image.jpg"  # Name of the file to save the image
-END_MARKER = b'\xFF\xD9' 
 
 try:
     print("Opening serial connection...")
@@ -17,6 +16,7 @@ try:
             data = ser.read(32)  # Read in chunks of 32 bytes
             if not data:
                 break  # Exit when no more data is received
+            print(data[:10])
             img_file.write(data)
 
     print(f"Image saved as {OUTPUT_FILE}")

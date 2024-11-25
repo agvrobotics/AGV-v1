@@ -39,34 +39,3 @@ void Camera(){
   if (imgsize == VC0706_160x120) Serial.println("160x120");
   Serial.println("-----------------");
 }
-
-void Capture() {
-  while (!pictureTaken) {
-    if (camera.takePicture()) {
-        pyserial();
-        pictureTaken = true;  
-    } else {
-        Serial.println("Failed to take picture.");
-    }
-  }
-}  
-
-void pyserial() {
-    uint32_t imgSize = camera.frameLength();
-    Serial.println("-----------------");
-    Serial.print("Image size: ");
-    Serial.println(imgSize);
-    Serial.println("-----------------");
-    //return;
-    while (imgSize > 0) {
-      uint8_t bytesToRead = min((uint32_t)32, imgSize);
-      uint8_t *buffer = camera.readPicture(bytesToRead); 
-      if (!buffer) {
-          Serial.println("Failed to read image data!");
-          while (1);
-      }
-      Serial.write(buffer, bytesToRead);
-
-      imgSize -= bytesToRead;
-    }
-}
