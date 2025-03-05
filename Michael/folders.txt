@@ -1,0 +1,13 @@
+project_root/
+│── src/                 # Main source code
+│   ├── detection.py     # Object detection script
+│   ├── utils.py         # Helper functions (e.g., image preprocessing)
+│   ├── camera.py        # Camera handling (read from webcam/laptop cam)
+│   ├── inference.py     # YOLO model loading & inference
+│── models/              # YOLO model weights
+│── data/                # Sample images/videos for testing
+│── notebooks/           # Jupyter notebooks for experiments
+│── configs/             # Config files (e.g., model settings)
+│── output/              # Saved results (e.g., detected images, logs)
+│── requirements.txt     # Dependencies
+│── README.md            # Project documentation
