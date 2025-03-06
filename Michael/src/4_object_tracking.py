@@ -2,6 +2,7 @@
 # Track objects using Norfair library.
 #Yolo detects objects and Norfair tracks them.
 #This prevents object from disappearing when they move.
+#Assigns id's, but if object disappears, it will assign a new id.
 import cv2
 import numpy as np
 from ultralytics import YOLO

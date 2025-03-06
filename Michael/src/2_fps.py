@@ -4,10 +4,10 @@
 #Helps measure how well YOLO is running in real-time.
 
 #FPS Guidelines
-#30+ FPS	🔥 Great – Real-time detection, smooth processing.
-#15 - 30 FPS	✅ Acceptable – Slight delay, but still good.
-#5 - 15 FPS	⚠️ Slow – Noticeable lag, needs optimization.
-#< 5 FPS	❌ Too slow – YOLO is struggling, needs fixing.
+#30+ FPS - Great – Real-time detection, smooth processing.
+#15 - 30 FPS - Acceptable – Slight delay, but still good.
+#5 - 15 FPS	 - Slow – Noticeable lag, needs optimization.
+#< 5 FPS - Too slow – YOLO is struggling, needs fixing.
 
 import cv2
 import time 
