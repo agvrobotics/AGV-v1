@@ -3,12 +3,13 @@
 #Filters Out Objects Outside Relevant Zones – Objects detected outside the dynamically adjusted Path, Pickup, or Danger zones are completely ignored, improving processing efficiency and reducing unnecessary tracking.
 #Maintains Real-Time Visualization of Adaptive Zones – The script continuously overlays updated zone boundaries on the video feed, providing a clear visual representation of where the AGV is focusing its attention.
 import cv2
+import random
 import numpy as np
 from ultralytics import YOLO
 from deep_sort_realtime.deepsort_tracker import DeepSort
 
 # Initialize YOLO & DeepSORT
-yolo_model = YOLO("../models/yolov8n.pt")
+yolo_model = YOLO("../../models/yolov8n.pt")
 tracker = DeepSort(max_age=30)
 
 # Object class IDs
@@ -17,7 +18,15 @@ BOX_CLASSES = {24, 25, 26}  # "suitcase", "backpack", "handbag"
 OBSTACLE_CLASSES = {2, 3, 7}  # "car", "truck", "forklift"
 
 # AGV Position (for dynamic zones)
-agv_x, agv_y = 300, 400
+#agv_x, agv_y = 300, 400
+
+def get_current_agv_position():
+    """Simulates AGV movement. Replace with real AGV tracking method."""
+    agv_x = random.randint(250, 350)  # Simulating slight movement
+    agv_y = random.randint(350, 450)
+    return agv_x, agv_y
+
+agv_x, agv_y = get_current_agv_position()
 
 # Define dynamic zones based on AGV position
 def update_zones(agv_x, agv_y):
