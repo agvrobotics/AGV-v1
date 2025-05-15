@@ -41,7 +41,7 @@ def get_zone_overlap(bbox, zone):
     return overlap_area > 500  # Minimum area threshold to consider overlap
 
 # Start video capture
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('/dev/video2')
 
 while cap.isOpened():
     ret, frame = cap.read()

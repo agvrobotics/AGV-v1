@@ -18,7 +18,7 @@ model = YOLO("../models/yolov8n.pt")
 # Initialize FPS variables
 prev_time = 0
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('/dev/video2')
 
 while cap.isOpened():
     ret, frame = cap.read()
